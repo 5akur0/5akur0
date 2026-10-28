@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>桃桃蛇 · 5akur0</title>
+<style>
+:root{color-scheme:light;--ink:#563044;--pink:#d92d73;--paper:#fff8f1;--blue:#a9def4}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-rounded,"Hiragino Maru Gothic ProN","PingFang SC",sans-serif}main{max-width:1000px;margin:auto;padding:40px 28px 24px}nav{display:flex;justify-content:space-between;align-items:center;font-size:14px}a{color:inherit;text-underline-offset:4px}h1{font-size:clamp(38px,7vw,66px);letter-spacing:-.035em;margin:40px 0 8px;line-height:1.12}h1 span{color:var(--pink)}.intro{margin:0 0 26px;font-size:16px;line-height:1.7}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px;flex-wrap:wrap}.score{font-size:17px;font-variant-numeric:tabular-nums}.score b{font-size:28px;margin-right:20px}.settings{display:flex;align-items:center;gap:10px;font-size:14px}select,button{font:inherit;color:var(--ink);border:1px solid #cbb8c2;background:#fffdfb;border-radius:12px;min-height:44px;padding:8px 16px;cursor:pointer}button:hover,select:hover{background:#fce3ef}button:focus-visible,select:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid #18768f;outline-offset:4px}button.primary{background:var(--pink);color:white;border-color:var(--pink);font-weight:650}button.primary:hover{background:#b9205d}.board{position:relative;background:#fce2ed;border-radius:24px;padding:14px;box-shadow:0 14px 40px #a54b7020}canvas{display:block;width:100%;height:auto;aspect-ratio:7/4;border-radius:14px;touch-action:none}.below{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:20px}.actions{display:flex;gap:10px}#status{margin:0;line-height:1.6;font-size:15px}.controls{display:grid;grid-template-columns:repeat(3,52px);gap:6px;justify-content:center;margin-top:22px}.controls button{padding:8px;display:grid;place-items:center}.controls svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.up{grid-column:2}.left{grid-column:1}.hint{text-align:center;font-size:13px;margin:16px 0 0;color:#765165}footer{display:flex;justify-content:space-between;margin-top:28px;font-size:12px;color:#765165}::selection{background:#f3a9cb;color:#563044}@media(max-width:600px){main{padding:22px 16px}h1{margin-top:30px}.board{padding:8px;border-radius:18px}.below{align-items:flex-start;flex-direction:column;gap:12px}.actions{width:100%}.actions button{flex:1}.intro{font-size:14px}.score b{margin-right:12px}.settings{gap:6px}select{padding:8px}.toolbar{gap:8px}footer{gap:12px}}
+</style>
+</head>
+<body><main>
+<nav><strong>5akur0 的小游乐场</strong><a href="https://github.com/5akur0">回到 GitHub ↗</a></nav>
+<h1>来陪<span>桃桃蛇</span>玩一会儿。</h1>
+<p class="intro">吃掉草莓，长大一点。粉色的小家伙，现在由你来带路。</p>
+<div class="toolbar"><div class="score">草莓 <b id="score">0</b> 最高 <b id="best">0</b></div><label class="settings">步伐 <select id="speed"><option value="150">散步</option><option value="100" selected>小跑</option><option value="65">冲冲冲</option></select></label></div>
+<div class="board"><canvas id="game" width="1008" height="576" tabindex="0" aria-label="贪吃蛇游戏区。开始后使用方向键或 WASD 移动，空格暂停。"></canvas></div>
+<div class="below"><p id="status" role="status">准备好了吗？草莓已经等不及了。</p><div class="actions"><button class="primary" id="start">开始玩</button><button id="pause" disabled>暂停</button></div></div>
+<div class="controls" aria-label="方向控制">
+<button class="up" data-dir="up" aria-label="向上"><svg viewBox="0 0 24 24"><path d="M5 14l7-7 7 7"/></svg></button>
+<button class="left" data-dir="left" aria-label="向左"><svg viewBox="0 0 24 24"><path d="M14 5l-7 7 7 7"/></svg></button>
+<button data-dir="down" aria-label="向下"><svg viewBox="0 0 24 24"><path d="M5 10l7 7 7-7"/></svg></button>
+<button data-dir="right" aria-label="向右"><svg viewBox="0 0 24 24"><path d="M10 5l7 7-7 7"/></svg></button></div>
+<p class="hint">方向键 / WASD · 空格暂停 · 手机上也能滑动或点按钮</p>
+<footer><span>碰到边缘会从另一边回来；小心别咬到尾巴。</span><span>Made for little breaks.</span></footer>
+</main><script src="game.js"></script></body></html>

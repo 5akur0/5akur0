@@ -7,14 +7,14 @@ for path in Path("dist").glob("*.svg"):
     svg = path.read_text()
     dark = "-dark" in path.name
     colors = (
-        ["#393347", "#342f40", "#66516f", "#a4789c", "#d99cbb", "#ffd0df"]
+        ["#524566", "#292c46", "#668dd0", "#a4bdf5", "#f18ac0", "#ffbde0"]
         if dark else
-        ["#eadfe8", "#faf1f5", "#d4eee3", "#a3d8c4", "#f1b6ce", "#df86ae"]
+        ["#b2def0", "#e6f5fc", "#a7dcf5", "#86c3f0", "#f490be", "#e65098"]
     )
     for name, color in zip(["cb", "ce", "c0", "c1", "c2", "c3", "c4"],
                            [colors[0], colors[1], *colors[1:]]):
         svg = re.sub(rf"--{name}:[^;}}]+", f"--{name}:{color}", svg)
-    svg = re.sub(r"--cs:[^;}]+", "--cs:#ff9dbb", svg)
+    svg = re.sub(r"--cs:[^;}]+", "--cs:#f45b9e", svg)
     # Scale every timeline together so eating, movement and the progress bar sync.
     svg = re.sub(r"(\d+(?:\.\d+)?)ms", lambda m: f"{float(m[1]) / 2:g}ms", svg)
     svg = svg.replace('rx="2" ry="2"', 'rx="4" ry="4"')
